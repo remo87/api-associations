@@ -1,0 +1,112 @@
+type Datasources {
+    progeny: Float
+    sysbio: Float
+    expressionAtlas: Float
+    europepmc: Float
+    intogen: Float
+    phewasCatalog: Float
+    uniprotLiterature: Float
+    phenodigm: Float
+    eva: Float
+    geneToPhenotype: Float
+    gwasCatalog: Float
+    slapenrich: Float
+    genomicsEngland: Float
+    postgap: Float
+    uniprot: Float
+    chembl: Float
+    cancerGene_census: Float
+    reactome: Float
+    uniprotSomatic: Float
+    evaSomatic: Float
+    crispr: Float
+}
+
+type Datatypes {
+    literature: Float
+    rnaExpression: Float
+    geneticAssociation: Float
+    somaticMutation: Float
+    knownDrug: Float
+    animalModel: Float
+    affectedPathway: Float
+}
+
+type EvidenceCount {
+    total: Int
+    datasources: Datasources
+    datatypes: Datatypes
+}
+
+type TherapeuticArea {
+    codes: [String]
+    labels: [String]
+}
+
+type EfoInfo {
+    label: String
+    therapeuticArea: TherapeuticArea
+}
+
+type Disease {
+    id: String
+    efoInfo: EfoInfo
+}
+
+type AssociationScore {
+    overall: Float
+    datasources: Datasources
+    datatypes: Datatypes
+}
+
+type GeneInfo {
+    symbol: String
+    name: String
+}
+
+type Categories {
+    predictedTractableMedLowConfidence: Float
+    clinicalPrecedence: Int
+    predictedTractableHighConfidence: Float
+}
+
+type Antibody {
+    topCategory: String
+    categories: Categories
+    buckets: [Int]
+}
+
+type Smallmolecule {
+    topCategory: String
+    smallMoleculeGenomeMember: Boolean
+    highQualityCompounds: Int
+    ensemble: Float
+    categories: Categories
+    buckets: [Int]
+}
+
+type Tractability {
+    antibody: Antibody
+    smallmolecule: Smallmolecule
+}
+
+type Target {
+    id: String
+    geneInfo: GeneInfo
+    tractability: Tractability
+}
+
+type Data {
+    isDirect: Boolean
+    id: String
+    evidenceCount: EvidenceCount
+    disease: Disease
+    associationScore: AssociationScore
+    target: Target
+}
+
+type Association {
+    dataVersion: String
+    size: Int
+    data: [Data]
+}

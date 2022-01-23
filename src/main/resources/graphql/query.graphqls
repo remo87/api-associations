@@ -1,0 +1,4 @@
+type Query {
+    associations(filter: Filter): [Data]
+    scoresById(id: String): AssociationScore
+}

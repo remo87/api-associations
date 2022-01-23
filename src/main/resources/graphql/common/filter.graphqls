@@ -1,0 +1,4 @@
+input Filter {
+    take: Int
+    skip: Int
+}
