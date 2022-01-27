@@ -1,0 +1,13 @@
+query {
+    scoresById(id: "ENSG00000003436") {
+        datatypes {
+            literature
+            rnaExpression
+            geneticAssociation
+            somaticMutation
+            knownDrug
+            animalModel
+            affectedPathway
+        }
+    }
+}

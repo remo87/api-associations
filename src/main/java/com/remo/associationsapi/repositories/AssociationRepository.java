@@ -1,5 +1,6 @@
 package com.remo.associationsapi.repositories;
 
+import com.remo.associationsapi.exceptions.NotFoundException;
 import com.remo.associationsapi.models.Association;
 import com.remo.associationsapi.models.AssociationScore;
 import com.remo.associationsapi.models.Datum;
@@ -40,9 +41,9 @@ public class AssociationRepository implements IAssociationRepository {
         return associationData
                 .getData()
                 .stream()
-                .filter(data -> data.getTarget().getId().   equals(id))
+                .filter(data -> data.getTarget().getId().equals(id))
                 .findFirst()
-                .orElseThrow()
+                .orElseThrow(() -> new NotFoundException("Score not found for id: " + id))
                 .getAssociationScore();
     }
 }
