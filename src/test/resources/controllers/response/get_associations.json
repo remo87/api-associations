@@ -1,0 +1,56 @@
+[
+  {
+    "id": "ENSG00000003436",
+    "symbol": "TFPI",
+    "name": "tissue factor pathway inhibitor",
+    "overall": 0.5827636456183956
+  },
+  {
+    "id": "ENSG00000143614",
+    "symbol": "GATAD2B",
+    "name": "GATA zinc finger domain containing 2B",
+    "overall": 0.637625
+  },
+  {
+    "id": "ENSG00000146648",
+    "symbol": "EGFR",
+    "name": "epidermal growth factor receptor",
+    "overall": 1.0
+  },
+  {
+    "id": "ENSG00000173535",
+    "symbol": "TNFRSF10C",
+    "name": "TNF receptor superfamily member 10c",
+    "overall": 0.6378002776688643
+  },
+  {
+    "id": "ENSG00000163513",
+    "symbol": "TGFBR2",
+    "name": "transforming growth factor beta receptor 2",
+    "overall": 0.7867312254055623
+  },
+  {
+    "id": "ENSG00000166501",
+    "symbol": "PRKCB",
+    "name": "protein kinase C beta",
+    "overall": 0.541551941692576
+  },
+  {
+    "id": "ENSG00000175387",
+    "symbol": "SMAD2",
+    "name": "SMAD family member 2",
+    "overall": 0.795385609949128
+  },
+  {
+    "id": "ENSG00000127418",
+    "symbol": "FGFRL1",
+    "name": "fibroblast growth factor receptor like 1",
+    "overall": 0.625
+  },
+  {
+    "id": "ENSG00000036828",
+    "symbol": "CASR",
+    "name": "calcium sensing receptor",
+    "overall": 0.6231768198011958
+  }
+]

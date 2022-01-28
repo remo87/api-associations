@@ -19,16 +19,29 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/associations")
-public class AssociationsController {
+@RequestMapping("/api/scores")
+public class ScoresController {
     @Autowired
     private IAssociationService associationService;
 
     private IAssociationMapper associationMapper = IAssociationMapper.MAPPER;
 
     @GetMapping
-    public ResponseEntity<List<Datum>> getAllData() {
+    public ResponseEntity<List<DataListItemDto>> getAllData() {
         List<Datum> datumList = associationService.getData();
-        return ResponseEntity.ok().body(datumList);
+        List<DataListItemDto> data = datumList
+                .stream()
+                .map(datum ->
+                        associationMapper.toListItem(datum)
+                )
+                .collect(Collectors.toList());
+        return ResponseEntity.ok().body(data);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ScoresDto> getScoresById(@PathVariable String id) {
+        Datatypes datatypes = associationService.getScoresById(id);
+        ScoresDto scores = associationMapper.toScores(datatypes);
+        return ResponseEntity.ok().body(scores);
     }
 }
