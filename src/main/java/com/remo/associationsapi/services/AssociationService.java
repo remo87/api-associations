@@ -1,9 +1,6 @@
 package com.remo.associationsapi.services;
 
-import com.remo.associationsapi.models.Association;
-import com.remo.associationsapi.models.AssociationScore;
-import com.remo.associationsapi.models.Datum;
-import com.remo.associationsapi.models.Filter;
+import com.remo.associationsapi.models.*;
 import com.remo.associationsapi.repositories.IAssociationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,15 +15,12 @@ public class AssociationService implements IAssociationService {
     private IAssociationRepository associationRepository;
 
     @Override
-    public List<Datum> getData(Filter filter) {
-        if(filter == null)
-            return associationRepository.getData();
-
-        return associationRepository.getData(filter);
+    public List<Datum> getData() {
+        return associationRepository.getData();
     }
 
     @Override
-    public AssociationScore getScoresById(String id) {
-        return associationRepository.getScoresById(id);
+    public Datatypes getScoresById(String id) {
+        return associationRepository.getScoresById(id).getDatatypes();
     }
 }

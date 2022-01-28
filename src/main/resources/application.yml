@@ -1,20 +1,14 @@
-ASSOCIATIONS_FILE: https://file path
-graphql:
-  playground:
-    enabled: true
-  servlet:
-    enabled: true
-    mapping: /graphql
-    cors-enabled: true
-    cors:
-      allowed-origins:
-        - "*"
-      allowed-methods:
-        - "GET"
-        - "HEAD"
-        - "POST"
-      allowed-headers:
-        - "*"
-    exception-handlers-enabled: true
-    context-setting: PER_REQUEST_WITH_INSTRUMENTATION
-    async-mode-enabled: true
+ASSOCIATIONS_FILE: https://storage.googleapis.com/associations_ot_remo/associations.json
+server:
+  port: 8090
+  errors:
+    include-message: always
+    include-binding-errors: always
+
+logging:
+  level:
+    org:
+      hibernate:SQL: debug
+
+springdoc:
+  swagger-ui.path: /swagger-ui.html
